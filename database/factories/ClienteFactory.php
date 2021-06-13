@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Cliente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ClienteFactory extends Factory
@@ -12,7 +12,7 @@ class ClienteFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Cliente::class;
 
     /**
      * Define the model's default state.

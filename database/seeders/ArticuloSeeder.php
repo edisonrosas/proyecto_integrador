@@ -20,11 +20,9 @@ class ArticuloSeeder extends Seeder
     {
         
         Articulo::factory(10)
-            ->has(
-                Marca::factory()->count(1),
-                Categoria::factory()->count(1),
-                Detalles::factory()->count(1)
-                )
+            ->has(Marca::factory()->count(1))
+            ->has    (Categoria::factory()->count(1))
+            ->has    (Detalles::factory()->count(1))      
             ->create();
 
     }
