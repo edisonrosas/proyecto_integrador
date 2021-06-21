@@ -14,23 +14,23 @@ class Articulo extends Model
         'descripcion',
         'slug',
         'status',
-        'imagen',
+        'imagen'
     ];     
 
 
     public function detalles()
     {
-        return $this->belongsTo('App\Models\Detalles');
+        return $this->hasOne('App\Models\Detalles');
     }
 
     public function marca()
     {
-        return $this->belongsTo('App\Models\Marca');
+        return $this->hasOne('App\Models\Marca');
     }
 
     public function categoria()
     {
-        return $this->belongsTo('App\Models\Categoria');
+        return $this->hasOne('App\Models\Categoria');
     }
 
 }

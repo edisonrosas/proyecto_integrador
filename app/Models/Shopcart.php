@@ -11,17 +11,13 @@ class Shopcart extends Model
 
     protected $fillable = [
         'cantidad',
+        'articulos',
         'costo_total', 
     ]; 
+    
     public function cliente()
     {
         return $this->belongsTo('App\Models\Cliente');
     }
-
-    public function articulo()
-    {
-        return $this->hasMany('App\Models\Articulo');
-    }
-
 
 }

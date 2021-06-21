@@ -11,11 +11,17 @@ class Pago extends Model
 
     protected $fillable = [
         'tipo_pago',
-        'costo_total', 
+        'costo_total',
+        'cliente_id', 
     ]; 
 
     public function shopCart()
     {
         return $this->belongsTo('App\Models\Shopcart');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo('App\Models\Cliente');
     }
 }

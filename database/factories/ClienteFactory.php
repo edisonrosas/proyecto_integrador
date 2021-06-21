@@ -22,6 +22,7 @@ class ClienteFactory extends Factory
     public function definition()
     {
         return [
+            'nombres' => $this->faker->firstname(),
             'apellidos' => $this->faker->lastname(),
             'celular' => $this->faker->phoneNumber(),
             'fecha_nacimiento' => $this->faker->dateTimeBetween('-80 years','-18 years'),

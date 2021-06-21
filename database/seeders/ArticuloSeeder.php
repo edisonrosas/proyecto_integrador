@@ -18,12 +18,25 @@ class ArticuloSeeder extends Seeder
      */
     public function run()
     {
-        
-        Articulo::factory(10)
-            ->has(Marca::factory()->count(1))
-            ->has    (Categoria::factory()->count(1))
-            ->has    (Detalles::factory()->count(1))      
-            ->create();
+        Articulo::factory(50)->create()->each(function ($articulo) {
+            $articulo->categoria()->save(Categoria::factory()->make());
+            $articulo->detalles()->save(Detalles::factory()->make());
+            $articulo->marca()->save(Marca::factory()->make());
+        });
+  /*
+        Categoria::factory(4)
+        ->has(Articulo::factory(4) 
+        )
+             
+        ->create();*/
 
+
+/*
+        Articulo::factory(10)
+            ->has(Marca::factory(1))
+            ->has(Categoria::factory(1))
+            ->has(Detalles::factory(1))      
+            ->create();
+*/
     }
 }
