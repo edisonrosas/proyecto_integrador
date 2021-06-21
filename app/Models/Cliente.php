@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Cliente extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nombres',
         'apellidos',
         'celular',
         'fecha_nacimiento',
@@ -20,8 +21,14 @@ class Cliente extends Model
 
     public function shopcart()
     {
-        return $this->belongsTo('App\Models\Shopcart');
+        //Un cliente puede haber realizado más de un carrito de compra, y realizar uno nuevo
+        return $this->hasMany('App\Models\Shopcart');
     }
 
+    public function pago()
+    {
+        //Un cliente puede haber realizado más de un carrito de compra, y realizar uno nuevo
+        return $this->hasMany('App\Models\Pago');
+    }
 
 }

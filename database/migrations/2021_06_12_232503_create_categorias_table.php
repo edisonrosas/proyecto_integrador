@@ -11,11 +11,13 @@ class CreateCategoriasTable extends Migration
      *
      * @return void
      */
+     
     public function up()
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('categoria')->unique();
         });
     }
 

@@ -3,8 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
+use Jenssegers\Mongodb\Eloquent\Model;
 class Articulo extends Model
 {
     use HasFactory;
@@ -12,26 +11,26 @@ class Articulo extends Model
     protected $fillable = [
         'nombre_articulo',
         'precio',
-        'marca',
         'descripcion',
         'slug',
         'status',
-        'imagen',
+        'imagen'
     ];     
 
-    public function user()
-    {
-        return $this->belongsTo('App\Models\Categoria');
-    }
 
     public function detalles()
     {
-        return $this->belongsTo('App\Models\Detalles');
+        return $this->hasOne('App\Models\Detalles');
     }
 
     public function marca()
     {
-        return $this->belongsTo('App\Models\Marca');
+        return $this->hasOne('App\Models\Marca');
+    }
+
+    public function categoria()
+    {
+        return $this->hasOne('App\Models\Categoria');
     }
 
 }

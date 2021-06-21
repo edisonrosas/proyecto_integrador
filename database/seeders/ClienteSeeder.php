@@ -16,8 +16,8 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)
-            ->has(Cliente::factory()->count(1))
-            ->create();
+        User::factory(10);
+       // Cliente::factory(10)->has(Shopcart::factory(1));
+
     }
 }
